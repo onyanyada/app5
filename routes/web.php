@@ -23,8 +23,8 @@ Route::post('/folders', [FolderController::class, "store"])->name('folder_store'
 Route::delete('/folder/{folder}', [FolderController::class, "destroy"])->name('folder_destroy');
 
 //フォルダ：更新画面
-Route::post('/foldersedit/{folder}', [FolderController::class, "edit"])->name('folder_edit'); //通常
-Route::get('/foldersedit/{folder}', [FolderController::class, "edit"])->name('edit');      //Validationエラーありの場合
+Route::post('/folders/edit/{folder}', [FolderController::class, "edit"])->name('folder_edit'); //通常
+Route::get('/folders/edit/{folder}', [FolderController::class, "edit"])->name('edit');      //Validationエラーありの場合
 
 //フォルダ：更新画面
 Route::post('/folders/update', [FolderController::class, "update"])->name('book_update');

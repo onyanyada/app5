@@ -3,7 +3,7 @@
   <div>{{ $slot }}</div>
   
     <div>
-    <form action="{{ url('foldersedit/'.$id) }}" method="POST">
+    <form action="{{ url('folders/edit/'.$id) }}" method="POST">
          @csrf
          
         <button type="submit"  class="btn text-blue">

@@ -27,7 +27,7 @@ class FolderController extends Controller
      */
     public function create()
     {
-        return view('folderscreate');
+        return view('folders.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class FolderController extends Controller
     public function edit($folder_id)
     {
         $folders = Folder::where('user_id', Auth::user()->id)->find($folder_id);
-        return view('foldersedit', ['folder' => $folders]);
+        return view('folders.edit', ['folder' => $folders]);
     }
 
     /**
