@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Folder extends Model
+class Task extends Model
 {
     use HasFactory;
+
     /**
-     * フォルダが持つタスク一覧を取得する
+     * タスクが所属するフォルダを取得する
      */
-    public function tasks()
+    public function folder()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsTo(Folder::class);
     }
 }
