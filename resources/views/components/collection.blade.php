@@ -1,12 +1,12 @@
   <!-- 本: 削除ボタン -->
-<div class="flex justify-between p-4 items-center bg-blue-500 text-white rounded-lg border-2 border-white">
+<div class="flex justify-between p-4 items-center border-2">
   <div>{{ $slot }}</div>
   
     <div>
     <form action="{{ url('foldersedit/'.$id) }}" method="POST">
          @csrf
          
-        <button type="submit"  class="btn bg-blue-500 rounded-lg">
+        <button type="submit"  class="btn text-blue">
             更新
         </button>
         
@@ -18,7 +18,7 @@
          @csrf
          @method('DELETE')
         
-        <button type="submit"  class="btn bg-blue-500 rounded-lg">
+        <button type="submit"  class="btn ">
             削除
         </button>
         

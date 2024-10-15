@@ -15,4 +15,14 @@ class Folder extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    // フォルダ削除時に関連タスクをカスケード削除
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($folder) {
+            $folder->tasks()->delete();
+        });
+    }
 }

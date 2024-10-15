@@ -17,7 +17,7 @@ class TaskController extends Controller
     {
         $folders = Folder::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->get();
         $tasks = $folder->tasks; // 選択されたフォルダに属するタスクを取得
-        return view('folders', [
+        return view('folders.index', [
             'folders' => $folders,
             'tasks' => $tasks,
             'selectedFolder' => $folder

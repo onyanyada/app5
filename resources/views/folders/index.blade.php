@@ -1,14 +1,4 @@
 <x-app-layout>
-
-    <!--ヘッダー[START]-->
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <form action="{{ route('folder_index') }}" method="GET" class="w-full max-w-lg">
-                <x-button class="bg-gray-100 text-gray-900">{{ __('Dashboard') }}</x-button>
-            </form>
-        </h2>
-    </x-slot>
-    <!--ヘッダー[END]-->
             
     <!-- バリデーションエラーの表示に使用-->
     <x-errors id="errors" class="bg-blue-500 rounded-lg">{{$errors}}</x-errors>
@@ -19,13 +9,16 @@
         
 
             <!--左エリア[START]-->
-            <div class="bg-gray-100 m-10">
-                <x-button class="bg-blue-500 rounded-lg">
+            <div class="bg-blue-100 m-10">
+                <div class="p-6 bg-white border-b border-gray-500 font-bold">
+                    フォルダ一覧
+                </div>
+                <x-button class="bg-blue-500 rounded-lg m-2">
                     <a href="{{ route('folder_create') }}">
                         フォルダを作成する
                     </a>
                 </x-button>
-                <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">
+                <div class="flex-1 text-gray-700 text-left px-4 py-2 m-2">
                 @if (count($folders) > 0)
                     @foreach ($folders as $folder)
                         <x-collection id="{{ $folder->id }}">
@@ -58,9 +51,6 @@
                                 タスクを作成する
                             </a>
                         </x-button>
-
-
-                        <h3 class="font-semibold text-lg mt-6">タスク一覧</h3>
                         @if ($tasks->count() > 0)
                             <ul>
                                 @foreach ($tasks as $task)
@@ -70,7 +60,7 @@
                                         <form action="{{ route('task_destroy', ['folder' => $selectedFolder, 'task' => $task]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <x-button class="bg-red-500 rounded-lg">削除</x-button>
+                                            削除
                                         </form>
                                     </li>
                                 @endforeach
