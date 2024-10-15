@@ -21,7 +21,7 @@
                 <div class="flex-1 text-gray-700 text-left px-4 py-2 m-2">
                 @if (count($folders) > 0)
                     @foreach ($folders as $folder)
-                        <x-collection id="{{ $folder->id }}">
+                        <x-collection id="{{ $folder->id }}" class="{{ isset($selectedFolder) && $selectedFolder->id == $folder->id ? 'bg-blue-700 text-white' : '' }}">
                             <a href="{{ route('task_index', $folder->id) }}">
                             {{ $folder->name }}
                             </a>
