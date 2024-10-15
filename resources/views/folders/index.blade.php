@@ -52,19 +52,28 @@
                             </a>
                         </x-button>
                         @if ($tasks->count() > 0)
-                            <ul>
+                            <table>
                                 @foreach ($tasks as $task)
-                                    <li>
-                                        {{ $task->title }} ({{ $task->due_date }})
-                                        <a href="{{ route('task_edit', ['folder' => $selectedFolder, 'task' => $task]) }}">編集</a>
+                                    <tr>
+                                        <td>{{ $task->title }}</td>
+                                        <td>({{ $task->due_date }})</td>
+                                        <td>@if($task->status == 1)未完@endif</td>
+                                        <td><a href="{{ route('task_edit', ['folder' => $selectedFolder, 'task' => $task]) }}">編集</a></td>
+                                        <td>
                                         <form action="{{ route('task_destroy', ['folder' => $selectedFolder, 'task' => $task]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             削除
                                         </form>
-                                    </li>
+                                        </td>
+
+                                        {{-- <option value="1" @if($task->status == 1) selected @endif>未完了</option> --}}
+
+                                        
+
+                                    </tr>
                                 @endforeach
-                            </ul>
+                            </ｔ>
                         @else
                             <p>タスクがありません</p>
                         @endif
