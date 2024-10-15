@@ -12,6 +12,9 @@ use App\Models\Task; //Add
 Route::get('/', [FolderController::class, 'index'])->middleware(['auth'])->name('folder_index');
 Route::get('/dashboard', [FolderController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
+// フォルダ作成フォーム表示用のルート
+Route::get('/folders/create', [FolderController::class, 'create'])->name('folder_create');
+
 //フォルダ：追加 
 Route::post('/folders', [FolderController::class, "store"])->name('folder_store');
 
