@@ -20,13 +20,8 @@ class TaskController extends Controller
         return view('folders', [
             'folders' => $folders,
             'tasks' => $tasks,
-            'selectedFolder' => $folder
+            'folder' => $folder
         ]);
-        // $tasks = $folder->tasks; // このフォルダに属するタスクを取得
-        // return view('tasks.index', [
-        //     'folder' => $folder,
-        //     'tasks' => $tasks
-        // ]);
     }
 
     /**

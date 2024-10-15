@@ -72,17 +72,17 @@
             <div class="bg-gray-100  m-10">
             
                 <div class="p-6 bg-white border-b border-gray-500 font-bold">
-                    @if(isset($selectedFolder))
-                        {{ $selectedFolder->name }}のタスク一覧
+                    @if(isset($folder))
+                        {{ $folder->name }}のタスク一覧
                     @else
                         タスク
                     @endif
                 </div>
             
                 <div>
-                    @if(isset($selectedFolder))
+                    @if(isset($folder))
                         <h3 class="font-semibold text-lg">タスクを追加</h3>
-                        <form action="{{ route('task_store', $selectedFolder) }}" method="POST">
+                        <form action="{{ route('task_store', $folder) }}" method="POST">
                             @csrf
                             <input type="text" name="title" placeholder="タスクの名前" required>
                             <input type="date" name="due_date" required>
@@ -95,8 +95,8 @@
                                 @foreach ($tasks as $task)
                                     <li>
                                         {{ $task->title }} ({{ $task->due_date }})
-                                        <a href="{{ route('task_edit', ['folder' => $selectedFolder, 'task' => $task]) }}">編集</a>
-                                        <form action="{{ route('task_destroy', ['folder' => $selectedFolder, 'task' => $task]) }}" method="POST">
+                                        <a href="{{ route('task_edit', ['folder' => $folder, 'task' => $task]) }}">編集</a>
+                                        <form action="{{ route('task_destroy', ['folder' => $folder, 'task' => $task]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <x-button class="bg-red-500 rounded-lg">削除</x-button>
