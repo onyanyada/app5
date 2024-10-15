@@ -15,6 +15,7 @@ Route::get('/dashboard', [FolderController::class, 'index'])->middleware(['auth'
 //フォルダ：追加 
 Route::post('/folders', [FolderController::class, "store"])->name('folder_store');
 
+
 //フォルダ：削除 
 Route::delete('/folder/{folder}', [FolderController::class, "destroy"])->name('folder_destroy');
 
@@ -27,8 +28,8 @@ Route::post('/folders/update', [FolderController::class, "update"])->name('book_
 
 
 
-// タスク一覧表示
-Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('task_index');
+// フォルダのタスクを表示するルート
+Route::get('/folders/{folder}', [TaskController::class, 'index'])->name('task_index');
 
 // タスク追加
 Route::post('/folders/{folder}/tasks', [TaskController::class, 'store'])->name('task_store');
@@ -43,12 +44,6 @@ Route::post('/folders/{folder}/tasks/{task}/update', [TaskController::class, 'up
 Route::delete('/folders/{folder}/tasks/{task}', [TaskController::class, 'destroy'])->name('task_destroy');
 
 
-/**
- * 「ログイン機能」インストールで追加されています 
- */
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

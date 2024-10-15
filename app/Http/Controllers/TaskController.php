@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -14,11 +15,18 @@ class TaskController extends Controller
      */
     public function index(Folder $folder)
     {
-        $tasks = $folder->tasks; // このフォルダに属するタスクを取得
-        return view('tasks.index', [
-            'folder' => $folder,
-            'tasks' => $tasks
+        $folders = Folder::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->get();
+        $tasks = $folder->tasks; // 選択されたフォルダに属するタスクを取得
+        return view('folders', [
+            'folders' => $folders,
+            'tasks' => $tasks,
+            'selectedFolder' => $folder
         ]);
+        // $tasks = $folder->tasks; // このフォルダに属するタスクを取得
+        // return view('tasks.index', [
+        //     'folder' => $folder,
+        //     'tasks' => $tasks
+        // ]);
     }
 
     /**

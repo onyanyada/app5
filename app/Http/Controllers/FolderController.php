@@ -12,11 +12,13 @@ class FolderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Folder $folder)
     {
         $folders = Folder::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->get();
+        $tasks = $folder->tasks; // このフォルダに属するタスクを取得
         return view('folders', [
-            'folders' => $folders
+            'folders' => $folders,
+            'tasks' => $tasks
         ]);
     }
 
