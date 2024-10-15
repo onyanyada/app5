@@ -53,13 +53,12 @@
             
                 <div>
                     @if(isset($selectedFolder))
-                        <h3 class="font-semibold text-lg">タスクを追加</h3>
-                        <form action="{{ route('task_store', $selectedFolder) }}" method="POST">
-                            @csrf
-                            <input type="text" name="title" placeholder="タスクの名前" required>
-                            <input type="date" name="due_date" required>
-                            <x-button class="bg-blue-500 rounded-lg">追加</x-button>
-                        </form>
+                        <x-button class="bg-blue-500 rounded-lg">
+                            <a href="{{ route('task_create',['folder' => $selectedFolder]) }}">
+                                タスクを作成する
+                            </a>
+                        </x-button>
+
 
                         <h3 class="font-semibold text-lg mt-6">タスク一覧</h3>
                         @if ($tasks->count() > 0)

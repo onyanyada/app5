@@ -34,6 +34,9 @@ Route::post('/folders/update', [FolderController::class, "update"])->name('book_
 // フォルダのタスクを表示するルート
 Route::get('/folders/{folder}', [TaskController::class, 'index'])->name('task_index');
 
+// タスク作成フォーム表示用のルート
+Route::get('/folders/{folder}/create', [TaskController::class, 'create'])->name('task_create');
+
 // タスク追加
 Route::post('/folders/{folder}/tasks', [TaskController::class, 'store'])->name('task_store');
 
