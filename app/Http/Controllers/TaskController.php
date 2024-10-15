@@ -20,7 +20,7 @@ class TaskController extends Controller
         return view('folders', [
             'folders' => $folders,
             'tasks' => $tasks,
-            'folder' => $folder
+            'selectedFolder' => $folder
         ]);
     }
 
