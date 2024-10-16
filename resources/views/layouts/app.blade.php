@@ -29,7 +29,9 @@
 
             <!-- Page Content -->
             <main>
+                <div class="max-w-7xl mx-auto">  
                 {{ $slot }}
+                </div>
             </main>
         </div>
     </body>

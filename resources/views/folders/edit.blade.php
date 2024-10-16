@@ -1,21 +1,10 @@
 <x-app-layout>
-
-    <!--ヘッダー[START]-->
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <form action="{{ route('folder_index') }}" method="GET" class="w-full max-w-lg">
-                <x-button class="bg-gray-100 text-gray-900">{{ __('Dashboard') }}：更新画面</x-button>
-            </form>
-        </h2>
-    </x-slot>
-    <!--ヘッダー[END]-->
             
         <!-- バリデーションエラーの表示に使用-->
         <x-errors id="errors" class="bg-blue-500 rounded-lg">{{$errors}}</x-errors>
         <!-- バリデーションエラーの表示に使用-->
     
     <!--全エリア[START]-->
-    <div class="flex bg-gray-100">
 
         <!--左エリア[START]--> 
         <div class="text-gray-700 text-left px-4 py-4 m-2">
@@ -53,14 +42,9 @@
         </div>
         <!--左エリア[END]--> 
     
-    
-    <!--右側エリア[START]-->
-    <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">
-      
-    </div>
-    <!--右側エリア[[END]-->       
+          
 
-</div>
+
  <!--全エリア[END]-->
 
 </x-app-layout>

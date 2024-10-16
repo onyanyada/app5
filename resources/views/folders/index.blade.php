@@ -6,10 +6,9 @@
     
     <!--全エリア[START]-->
     <div class="flex bg-gray-100">
-        
 
             <!--左エリア[START]-->
-            <div class="bg-blue-100 m-10">
+            <div class="my-10 bg-white w-1/5">
                 <div class="p-6 bg-white border-b border-gray-500 font-bold">
                     フォルダ一覧
                 </div>
@@ -18,10 +17,10 @@
                         フォルダを作成する
                     </a>
                 </x-button>
-                <div class="flex-1 text-gray-700 text-left px-4 py-2 m-2">
+                <div class="flex-1 text-gray-700 text-left">
                 @if (count($folders) > 0)
                     @foreach ($folders as $folder)
-                        <x-collection id="{{ $folder->id }}" class="{{ isset($selectedFolder) && $selectedFolder->id == $folder->id ? 'bg-blue-700 text-white' : '' }}">
+                        <x-collection id="{{ $folder->id }}" class="{{ isset($selectedFolder) && $selectedFolder->id == $folder->id ? 'bg-sky-500 text-white' : '' }}">
                             <a href="{{ route('task_index', $folder->id) }}">
                             {{ $folder->name }}
                             </a>
@@ -34,9 +33,9 @@
     
     
             <!--右側エリア[START]-->
-            <div class="bg-gray-100  m-10">
+            <div class="w-4/5 m-10 bg-white">
             
-                <div class="p-6 bg-white border-b border-gray-500 font-bold">
+                <div class="p-6 border-b border-gray-500 font-bold">
                     @if(isset($selectedFolder))
                         {{ $selectedFolder->name }}のタスク一覧
                     @else
@@ -44,9 +43,9 @@
                     @endif
                 </div>
             
-                <div>
+                <div class="m-2">
                     @if(isset($selectedFolder))
-                        <x-button class="bg-blue-500 rounded-lg">
+                        <x-button class="bg-blue-500 rounded-lg m-2">
                             <a href="{{ route('task_create',['folder' => $selectedFolder]) }}">
                                 タスクを作成する
                             </a>

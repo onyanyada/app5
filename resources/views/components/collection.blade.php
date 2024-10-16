@@ -1,5 +1,5 @@
   <!-- 本: 削除ボタン -->
-<div {{ $attributes->merge(['class' => 'flex justify-between p-4 items-center border-2']) }}>
+<div {{ $attributes->merge(['class' => 'flex justify-between p-4 items-center border-1 border-black']) }}>
   <div>{{ $slot }}</div>
   
     <div>
